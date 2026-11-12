@@ -374,7 +374,60 @@
     #pannelloTraccia #menuTasti .rigaMenu button.campioneColore { width: 34px; height: 34px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.35); box-shadow: none; }
     #pannelloTraccia #menuTasti .rigaMenu button.campioneColore::before { display: none; }
     #pannelloTraccia #menuTasti .rigaMenu button.campioneColore.scelto { border-color: #ffffff; box-shadow: 0 0 10px #ffffff; }
-  </style>
+  
+    /* ===== Schermata pulita e moderna ===== */
+    #barraInferiore { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.6) 100%); border-top: none; box-shadow: none; padding: 2px 10px 0; }
+    #rigaCifre { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 6px; }
+    #rigaCifre .blocco { text-align: center; }
+    #bloccoMedia { text-align: left; justify-self: start; align-self: end; padding-bottom: 6px; }
+    #rigaCifre #btnCentra { justify-self: end; align-self: end; width: 44px; height: 44px; margin-bottom: 6px; background: rgba(255,255,255,0.92); color: #1a1a1a; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.35); opacity: 1; }
+    .lcd { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 58px; line-height: 1; letter-spacing: -1px; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.85); padding: 0; background: none; border: none; border-radius: 0; text-align: center; }
+    .lcd::before { display: none; }
+    .unitaLcd { font-size: 12px; color: #fff; opacity: 0.9; text-shadow: 0 1px 4px rgba(0,0,0,0.9); letter-spacing: 1px; margin-top: 0; text-transform: none; }
+    .dettaglioLcd { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+    #cifraMedia { display: none; text-align: left; }
+    body.mediaOn #cifraMedia { display: block; }
+    #cifraMedia .lcd { font-size: 30px; color: #80deea; text-align: left; }
+    #cifraMedia .rigaLcd { justify-content: flex-start; }
+    #btnMedia { width: auto; height: auto; border-radius: 12px; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: #fff; border: none; background: rgba(198,40,40,0.9); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+    #btnMedia.attiva { background: rgba(46,125,50,0.95); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+    /* i quattro tab stanno nascosti: compaiono toccando il bordo inferiore */
+    #rigaTab { display: none; gap: 6px; margin-top: 4px; }
+    #zonaInferiore.tabAperti #rigaTab { display: flex; }
+    #maniglia { height: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    #maniglia span { width: 46px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.75); box-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+    #zonaInferiore .btnIcona, #zonaInferiore .btnIconaTesto, #zonaInferiore .tab { background: rgba(var(--scuro-rgb),0.85); border: 1px solid rgba(var(--acc-rgb),0.4); border-radius: 12px; box-shadow: none; }
+    #zonaInferiore .btnIcona { width: 44px; height: 44px; }
+    #zonaInferiore .btnIconaTesto { min-width: 64px; padding: 6px 8px; font-size: 11px; }
+    #zonaInferiore .tab, .notte #zonaInferiore .tab { padding: 5px 4px; font-size: 10.5px; }
+    .popupBasso { gap: 8px; padding: 6px 8px; border-radius: 14px; background: rgba(var(--scuro-rgb),0.85); border: 1px solid rgba(var(--acc-rgb),0.4); box-shadow: none; backdrop-filter: blur(6px); }
+    /* bussola come nella foto, ma in basso */
+    #barraBussola { height: 60px; margin: 0 8px 2px; background: none; border: none; box-shadow: none; border-radius: 0; }
+    #nastroBussola .tacca i { background: rgba(255,255,255,0.9); }
+    #nastroBussola .tacca.grande i { background: #fff; }
+    #nastroBussola .tacca b { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.95); }
+    #nastroBussola .tacca b.punto { color: #fff; }
+    #nastroBussola .tacca b.nord { color: #ff1744; }
+    #lineaBussola { top: 0; bottom: auto; height: 0; width: 0; margin-left: -6px; background: none; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 11px solid #ff1744; }
+    #testoBussola { top: auto; bottom: 0; background: none; border: none; border-radius: 0; color: #fff; font-size: 17px; padding: 0; text-shadow: 0 1px 5px rgba(0,0,0,0.95); }
+    #testoBussola::before { content: "Angolo di rotta "; font-weight: normal; font-size: 12px; opacity: 0.9; }
+    /* menu in alto più compatti */
+    #pannelloTraccia #menuTasti .rigaMenu button.voce { min-height: 34px; padding: 3px 10px; font-size: 13px; gap: 9px; border-radius: 10px; border-width: 1px; box-shadow: none; }
+    #pannelloTraccia #menuTasti .rigaMenu button.voce::before { width: 20px; height: 20px; }
+    .rigaMenu.colonna { gap: 4px; }
+    #finestraSecondaria { padding: 6px; border-radius: 12px; backdrop-filter: blur(6px); }
+    #barraAltaCentro { top: 52px; gap: 6px; }
+    #riquadroOra, #riquadroMaree { padding: 3px 11px; border-radius: 12px; background: rgba(0,0,0,0.5); border: none; box-shadow: none; backdrop-filter: blur(6px); color: #fff; }
+    #riquadroOra { font-size: 17px; }
+    #riquadroMaree .mrValore { font-size: 18px; }
+    #riquadroVento { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3px 10px; border-radius: 12px; background: rgba(0,0,0,0.5); border: none; box-shadow: none; backdrop-filter: blur(6px); color: #fff; font-family: inherit; line-height: 1.15; }
+    #riquadroVento .vtRiga1 { display: flex; align-items: center; gap: 4px; font-size: 15px; font-weight: bold; white-space: nowrap; }
+    #riquadroVento .vtRiga2 { font-size: 10.5px; opacity: 0.9; white-space: nowrap; }
+    #frecciaVento { transition: transform 0.4s; flex: none; }
+    #riquadroMeteo { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3px 10px; border-radius: 12px; background: rgba(0,0,0,0.5); border: none; box-shadow: none; backdrop-filter: blur(6px); color: #fff; font-family: inherit; line-height: 1.15; }
+    #riquadroMeteo .vtRiga1 { font-size: 15px; font-weight: bold; white-space: nowrap; }
+    #riquadroMeteo .vtRiga2 { font-size: 10.5px; opacity: 0.9; white-space: nowrap; }
+</style>
 </head>
 <body>
 
@@ -385,7 +438,7 @@
 
 <div id="wrapMappa"><div id="mappa"></div></div>
 
-<div id="barraAltaCentro"><div id="riquadroOra" aria-label="Ora attuale">--:--:--</div><button id="riquadroMaree" type="button" aria-label="Marea"><span class="mrNome">Marea</span><span class="mrValore">...</span></button></div>
+<div id="barraAltaCentro"><div id="riquadroOra" aria-label="Ora attuale">--:--:--</div><button id="riquadroMaree" type="button" aria-label="Marea"><span class="mrNome">Marea</span><span class="mrValore">...</span></button><button id="riquadroVento" type="button" aria-label="Vento"><span class="vtRiga1"><svg id="frecciaVento" viewBox="0 0 24 24" width="15" height="15"><path d="M12 3l6 15-6-4-6 4z" fill="currentColor"/></svg><span id="vtTesto1">--</span></span><span class="vtRiga2" id="vtTesto2"></span></button><button id="riquadroMeteo" type="button" aria-label="Meteo"><span class="vtRiga1" id="mtTesto1">--</span><span class="vtRiga2" id="mtTesto2"></span></button></div>
 
 <div id="pannelloMaree">
   <button id="btnChiudiMaree">Chiudi</button>
@@ -632,17 +685,17 @@
 
   <div id="barraInferiore">
     <div id="rigaCifre">
-      <div class="blocco">
-        <div class="rigaLcd"><div class="lcd" data-ghost="88.8"><span id="valoreVelocita">--</span></div></div>
-        <div class="unitaLcd">velocità km/h</div>
-      </div>
-      <div class="blocco">
-        <div class="rigaLcd">
-          <div class="lcd" data-ghost="88.8"><span id="valoreMedia">--</span></div>
-          <button id="btnMedia" title="Velocità media: rosso spenta, verde accesa" aria-label="Velocità media"></button>
+      <div class="blocco" id="bloccoMedia">
+        <div id="cifraMedia">
+          <div class="rigaLcd"><div class="lcd"><span id="valoreMedia">--</span></div></div>
+          <div class="unitaLcd">media km/h</div>
+          <div class="dettaglioLcd" id="dettaglioMedia"></div>
         </div>
-        <div class="unitaLcd">media km/h</div>
-        <div class="dettaglioLcd" id="dettaglioMedia"></div>
+        <button id="btnMedia" title="Velocità media: rosso spenta, verde accesa" aria-label="Velocità media">MEDIA</button>
+      </div>
+      <div class="blocco" id="bloccoVelocita">
+        <div class="rigaLcd"><div class="lcd"><span id="valoreVelocita">--</span></div></div>
+        <div class="unitaLcd">km/h</div>
       </div>
       <button id="btnCentra" title="Centra su di me" aria-label="Centra su di me">
         <svg viewBox='0 0 24 24' width='30' height='30' xmlns='http://www.w3.org/2000/svg'>
@@ -663,6 +716,7 @@
       <button id="tabRotta" class="tab" title="Rotta" aria-label="Rotta"><span class="et">Rotta</span></button>
       <button id="tabZona" class="tab" title="Zona" aria-label="Zona"><span class="et">Zona</span></button>
     </div>
+    <div id="maniglia" role="button" aria-label="Apri i menu in basso"><span></span></div>
   </div>
 </div>
 
@@ -1211,9 +1265,9 @@
   let erroreMarea = false;    // true se non si riescono a scaricare i dati
 
   // Scarica il file una sola volta per tutte le stazioni.
-  // Prima prova l'indirizzo interno del sito (Netlify lo inoltra al Comune, senza blocchi),
-  // poi quello diretto del Comune.
-  const URL_INTERNO_MAREA = "/api/livello";
+  // Prima prova il file nel sito (aggiornato da GitHub Actions ogni pochi minuti),
+  // poi l'indirizzo diretto del Comune (che di solito il browser blocca).
+  const URL_INTERNO_MAREA = "dati/livello.json";   // file nel sito, aggiornato da GitHub Actions
   function scaricaDa(url) {
     return fetch(url, { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); })
@@ -1273,6 +1327,10 @@
         if (!voce || !voce.valore) return;
         const metri = parseFloat(String(voce.valore).replace(",", "."));
         if (isNaN(metri)) return;
+        if (voce.data) {
+          const quando = new Date(String(voce.data).replace(" ", "T")).getTime();
+          if (!isNaN(quando) && Date.now() - quando > 3 * 3600 * 1000) return;   // dato fermo da più di 3 ore: non lo uso
+        }
         s.livello = Math.round(metri * 100);
         s.ora = voce.data ? String(voce.data).slice(11, 16) : "";
       });
@@ -2420,7 +2478,7 @@
       const grande = (nome % 15 === 0);
       let etichetta = "";
       if (nome % 45 === 0) {
-        etichetta = "<b class='punto'>" + SIGLE_VENTI[nome / 45] + "</b>";
+        etichetta = "<b class='punto" + (nome === 0 ? " nord" : "") + "'>" + SIGLE_VENTI[nome / 45] + "</b>";
       } else if (nome % 15 === 0) {
         etichetta = "<b>" + nome + "</b>";
       }
@@ -2743,16 +2801,10 @@
 
   // Colori scelti da te per ogni zona. La zona si colora tutta, in trasparenza.
   const ZONE_COLORI = [
-    { n: "Azzurro chiaro", c: "#81d4fa" }, { n: "Azzurro", c: "#29b6f6" }, { n: "Celeste scuro", c: "#0277bd" },
-    { n: "Blu", c: "#1e5bd8" }, { n: "Blu notte", c: "#1a237e" }, { n: "Turchese", c: "#00acc1" },
-    { n: "Acqua", c: "#26a69a" }, { n: "Verde chiaro", c: "#9ccc65" }, { n: "Verde", c: "#43a047" },
-    { n: "Verde scuro", c: "#1b5e20" }, { n: "Lime", c: "#c0ca33" }, { n: "Giallo", c: "#fdd835" },
-    { n: "Oro", c: "#ffb300" }, { n: "Arancio chiaro", c: "#ffb74d" }, { n: "Arancio", c: "#fb8c00" },
-    { n: "Arancio scuro", c: "#e65100" }, { n: "Rosso", c: "#e53935" }, { n: "Rosso scuro", c: "#b71c1c" },
-    { n: "Rosa", c: "#f06292" }, { n: "Fucsia", c: "#d81b60" }, { n: "Lilla", c: "#ba68c8" },
-    { n: "Viola", c: "#8e24aa" }, { n: "Viola scuro", c: "#4a148c" }, { n: "Marrone", c: "#8d6e63" },
-    { n: "Grigio chiaro", c: "#b0bec5" }, { n: "Grigio", c: "#78909c" }, { n: "Grigio scuro", c: "#37474f" }
+    { n: "Azzurro", c: "#29b6f6" }, { n: "Blu", c: "#1e5bd8" }, { n: "Verde", c: "#43a047" }, { n: "Giallo", c: "#fdd835" },
+    { n: "Arancio", c: "#fb8c00" }, { n: "Rosso", c: "#e53935" }, { n: "Viola", c: "#8e24aa" }, { n: "Grigio", c: "#78909c" }
   ];
+
 
   const CHIAVE_ZONE_MODO = "zoneModo";
   // nascoste = compaiono solo quando ci entri; sempre = sempre visibili in trasparenza;
@@ -3022,19 +3074,6 @@
         };
         colori.appendChild(p);
       });
-      const libero = document.createElement("input");
-      libero.type = "color";
-      libero.setAttribute("aria-label", "Colore a scelta");
-      libero.value = /^#[0-9a-fA-F]{6}$/.test(coloreZona(z)) ? coloreZona(z) : "#29b6f6";
-      libero.style.cssText = "width:34px;height:30px;padding:0;margin:0;border:none;background:none;";
-      libero.onchange = function () {
-        const l = leggiZone();
-        l.forEach(function (x) { if (x.id === z.id) { x.colore = libero.value; } });
-        scriviZone(l);
-        ridisegnaZone();
-        mostraZone();
-      };
-      colori.appendChild(libero);
 
       const bVai = document.createElement("button");
       bVai.textContent = "Vai";
@@ -4247,6 +4286,171 @@
     disegnaTrattiScelti();
     aggiornaBannerTratto();
   });
+
+  // ===== SCHERMATA PULITA: media che compare solo quando è attiva, tab nascosti =====
+  setInterval(function () { document.body.classList.toggle("mediaOn", mediaAttiva); }, 400);
+  document.body.classList.toggle("mediaOn", mediaAttiva);
+
+  (function () {
+    const zonaInf = document.getElementById("zonaInferiore");
+    document.getElementById("maniglia").addEventListener("click", function () {
+      const apriti = !zonaInf.classList.contains("tabAperti");
+      zonaInf.classList.toggle("tabAperti", apriti);
+      if (!apriti) { chiudiPopupBassi(); }
+    });
+    // toccando la mappa si richiude tutto
+    mappa.on("click", function () { zonaInf.classList.remove("tabAperti"); });
+  })();
+
+  // ===== VENTO (direzione e forza dove sei) =====
+  // Dati del modello meteo Open-Meteo (gratuito, per uso non commerciale, licenza CC BY 4.0).
+  // Non sono misure sul posto: sono una stima del modello per la tua posizione, aggiornata ogni 10 minuti.
+  const riquadroVento = document.getElementById("riquadroVento");
+  const frecciaVento = document.getElementById("frecciaVento");
+  let ventoDati = null;
+  let ventoPos = null;
+  let ventoUltimo = 0;
+  let ventoInCorso = false;
+  let ventoErrore = false;
+
+  function forzaBeaufort(nodi) {
+    const limiti = [1, 4, 7, 11, 17, 22, 28, 34, 41, 48, 56, 64];
+    nodi = Math.round(nodi);
+    let f = 0;
+    while (f < limiti.length && nodi >= limiti[f]) { f++; }
+    return f;
+  }
+
+  // Codici meteo WMO -> testo e simbolo
+  function descriviMeteo(codice) {
+    if (codice === 0) { return { t: "sereno", e: "☀️" }; }
+    if (codice === 1) { return { t: "poco nuvoloso", e: "🌤️" }; }
+    if (codice === 2) { return { t: "parzialmente nuvoloso", e: "⛅" }; }
+    if (codice === 3) { return { t: "coperto", e: "☁️" }; }
+    if (codice === 45 || codice === 48) { return { t: "nebbia", e: "🌫️" }; }
+    if (codice >= 51 && codice <= 57) { return { t: "pioviggine", e: "🌦️" }; }
+    if (codice >= 61 && codice <= 67) { return { t: "pioggia", e: "🌧️" }; }
+    if (codice >= 71 && codice <= 77) { return { t: "neve", e: "❄️" }; }
+    if (codice >= 80 && codice <= 82) { return { t: "rovesci", e: "🌧️" }; }
+    if (codice === 85 || codice === 86) { return { t: "rovesci di neve", e: "❄️" }; }
+    if (codice === 95) { return { t: "temporale", e: "⛈️" }; }
+    if (codice === 96 || codice === 99) { return { t: "temporale con grandine", e: "⛈️" }; }
+    return { t: "n.d.", e: "❔" };
+  }
+
+  // Dal risultato prendo la situazione adesso e le prossime 3 ore
+  function leggiMeteo(j) {
+    const c = j.current || {};
+    const m = { temp: typeof c.temperature_2m === "number" ? c.temperature_2m : null,
+                codice: typeof c.weather_code === "number" ? c.weather_code : null,
+                pioggiaMm: typeof c.precipitation === "number" ? c.precipitation : null,
+                probPioggia: null, visibilitaKm: null, temporale: false };
+    const h = j.hourly;
+    if (h && Array.isArray(h.time) && c.time) {
+      const i0 = h.time.indexOf(String(c.time).slice(0, 13) + ":00");
+      if (i0 >= 0) {
+        for (let i = i0; i < Math.min(i0 + 4, h.time.length); i++) {
+          const p = h.precipitation_probability ? h.precipitation_probability[i] : null;
+          if (typeof p === "number" && (m.probPioggia === null || p > m.probPioggia)) { m.probPioggia = p; }
+          const v = h.visibility ? h.visibility[i] : null;
+          if (typeof v === "number" && (m.visibilitaKm === null || v / 1000 < m.visibilitaKm)) { m.visibilitaKm = v / 1000; }
+          const cod = h.weather_code ? h.weather_code[i] : null;
+          if (typeof cod === "number" && cod >= 95) { m.temporale = true; }
+        }
+      }
+    }
+    return m;
+  }
+
+  function mostraMeteo() {
+    const t1 = document.getElementById("mtTesto1");
+    const t2 = document.getElementById("mtTesto2");
+    const m = ventoDati ? ventoDati.meteo : null;
+    if (!m || m.codice === null) { t1.textContent = ventoErrore ? "!" : "--"; t2.textContent = ""; return; }
+    const d = descriviMeteo(m.codice);
+    t1.textContent = d.e + " " + (m.temp !== null ? Math.round(m.temp) + "°" : "");
+    t2.textContent = m.temporale ? "temporale in arrivo" : (m.probPioggia !== null ? "pioggia " + Math.round(m.probPioggia) + "%" : d.t);
+  }
+
+  document.getElementById("riquadroMeteo").addEventListener("click", function () {
+    const m = ventoDati ? ventoDati.meteo : null;
+    if (!m || m.codice === null) { aggiornaVento(true); alert("Sto cercando il meteo per la tua posizione. Se non compare, controlla la connessione."); return; }
+    const d = descriviMeteo(m.codice);
+    alert("Adesso: " + d.t + (m.temp !== null ? ", " + Math.round(m.temp) + " °C" : "") + "\n" +
+      (m.pioggiaMm !== null ? "Pioggia in corso: " + m.pioggiaMm.toFixed(1).replace(".", ",") + " mm\n" : "") +
+      "Prossime 3 ore:\n" +
+      (m.probPioggia !== null ? "• probabilità di pioggia fino al " + Math.round(m.probPioggia) + "%\n" : "") +
+      (m.visibilitaKm !== null ? "• visibilità minima circa " + (m.visibilitaKm >= 10 ? Math.round(m.visibilitaKm) : m.visibilitaKm.toFixed(1).replace(".", ",")) + " km\n" : "") +
+      (m.temporale ? "• ATTENZIONE: previsto temporale\n" : "") +
+      "\nÈ una stima di un modello meteo per la tua posizione, non una misura sul posto. Prima di uscire guarda il bollettino ufficiale e il cielo.\nDati meteo: Open-Meteo.com (CC BY 4.0).");
+  });
+
+  function mostraVento() {
+    mostraMeteo();
+    const t1 = document.getElementById("vtTesto1");
+    const t2 = document.getElementById("vtTesto2");
+    if (!ventoDati) {
+      t1.textContent = ventoErrore ? "!" : "--";
+      t2.textContent = ventoErrore ? "vento n.d." : "";
+      return;
+    }
+    const nodi = Math.round(ventoDati.nodi);
+    t1.textContent = nomeDirezione(ventoDati.da) + " " + nodi + " kn";
+    t2.textContent = "forza " + forzaBeaufort(ventoDati.nodi) + " · raff. " + Math.round(ventoDati.raffiche);
+    aggiornaFrecciaVento();
+  }
+
+  // la freccia punta dove va il vento; se la mappa gira, la correggo con la mia direzione
+  function aggiornaFrecciaVento() {
+    if (!ventoDati) { return; }
+    let angolo = ventoDati.da + 180;
+    if (mappaGira && direzioneLiscia !== null) { angolo -= direzioneLiscia; }
+    frecciaVento.style.transform = "rotate(" + Math.round(angolo) + "deg)";
+  }
+
+  function aggiornaVento(forza) {
+    const rif = puntoRiferimentoMarea();
+    const mosso = ventoPos !== null && (Math.abs(rif.lat - ventoPos.lat) > 0.05 || Math.abs(rif.lng - ventoPos.lng) > 0.05);
+    if (!forza && ventoDati && !mosso && Date.now() - ventoUltimo < 600000) { return; }
+    if (ventoInCorso) { return; }
+    ventoInCorso = true;
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=" + rif.lat.toFixed(3) + "&longitude=" + rif.lng.toFixed(3) +
+      "&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m,temperature_2m,weather_code,precipitation" +
+      "&hourly=precipitation_probability,visibility,weather_code&forecast_days=2&wind_speed_unit=kn&timezone=auto";
+    fetch(url, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) { throw new Error("http"); } return r.json(); })
+      .then(function (j) {
+        const c = j && j.current;
+        if (!c || typeof c.wind_speed_10m !== "number" || typeof c.wind_direction_10m !== "number") { throw new Error("formato"); }
+        ventoDati = { nodi: c.wind_speed_10m, da: c.wind_direction_10m, raffiche: typeof c.wind_gusts_10m === "number" ? c.wind_gusts_10m : c.wind_speed_10m, ora: c.time || "" };
+        ventoDati.meteo = leggiMeteo(j);
+        ventoPos = { lat: rif.lat, lng: rif.lng };
+        ventoUltimo = Date.now();
+        ventoErrore = false;
+        mostraVento();
+      })
+      .catch(function () {
+        // se avevo un dato vecchio di più di 30 minuti non lo tengo
+        if (ventoDati && Date.now() - ventoUltimo > 1800000) { ventoDati = null; }
+        ventoErrore = ventoDati === null;
+        mostraVento();
+      })
+      .then(function () { ventoInCorso = false; });
+  }
+
+  riquadroVento.addEventListener("click", function () {
+    if (!ventoDati) { aggiornaVento(true); alert("Sto cercando il vento per la tua posizione. Se non compare, controlla la connessione."); return; }
+    const kmh = Math.round(ventoDati.nodi * 1.852);
+    alert("Vento da " + nomeDirezione(ventoDati.da) + " (" + Math.round(ventoDati.da) + "°)\n" +
+      Math.round(ventoDati.nodi) + " nodi (" + kmh + " km/h), forza " + forzaBeaufort(ventoDati.nodi) + " della scala Beaufort\n" +
+      "Raffiche fino a " + Math.round(ventoDati.raffiche) + " nodi\n" +
+      (ventoDati.ora ? "Dato delle " + String(ventoDati.ora).slice(11, 16) + "\n" : "") +
+      "\nÈ una stima di un modello meteo per la tua posizione, non una misura sul posto: in laguna, tra edifici o vicino a ponti il vento reale può essere diverso.\nDati meteo: Open-Meteo.com (CC BY 4.0).");
+  });
+
+  setInterval(function () { aggiornaVento(false); aggiornaFrecciaVento(); }, 5000);
+  setTimeout(function () { aggiornaVento(false); }, 2500);
+  mostraVento();
 
   // ===== ROTTE SALVATE E TASTI DEL MENU "ROTTA" =====
   const CHIAVE_ROTTE_SALVATE = "rotteSalvate";
