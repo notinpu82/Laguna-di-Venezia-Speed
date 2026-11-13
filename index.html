@@ -427,6 +427,37 @@
     #riquadroMeteo { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3px 10px; border-radius: 12px; background: rgba(0,0,0,0.5); border: none; box-shadow: none; backdrop-filter: blur(6px); color: #fff; font-family: inherit; line-height: 1.15; }
     #riquadroMeteo .vtRiga1 { font-size: 15px; font-weight: bold; white-space: nowrap; }
     #riquadroMeteo .vtRiga2 { font-size: 10.5px; opacity: 0.9; white-space: nowrap; }
+
+    /* ===== Menu in alto a destra: vetro, più in basso, entra da lato ===== */
+    #pannelloTraccia { top: 100px; }
+    #pannelloTraccia #btnMenu { background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); border: none; box-shadow: none; color: #fff; }
+    #pannelloTraccia #btnMenu::before { background: #fff; }
+    #menuTasti { background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); border-radius: 14px; padding: 6px; }
+    #menuTasti.aperto { animation: entraDaDestra 0.25s ease-out; }
+    @keyframes entraDaDestra { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    #finestraSecondaria { background: rgba(255,255,255,0.06); border: none; }
+    #pannelloTraccia #menuTasti .rigaMenu button.voce { background: transparent; border: none; color: #fff; text-shadow: none; }
+    #pannelloTraccia #menuTasti .rigaMenu button.voce::before { background: #fff; }
+    #pannelloTraccia #menuTasti .rigaMenu button.voce.aperto,
+    #pannelloTraccia #menuTasti .rigaMenu button.voce.acceso,
+    #pannelloTraccia #menuTasti .rigaMenu button.voce.accesa { background: rgba(255,255,255,0.2); }
+    #manigliaDestra { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 24px; height: 90px; display: flex; align-items: center; justify-content: center; z-index: 900; cursor: pointer; }
+    #manigliaDestra span { width: 5px; height: 46px; border-radius: 3px; background: rgba(255,255,255,0.75); box-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+
+    /* ===== Menu nascosto: si apre solo dal bordo destro, trasparente ===== */
+    #pannelloTraccia #btnMenu { display: none; }
+    #manigliaDestra { width: 36px; height: 150px; }
+    #manigliaDestra span { opacity: 0.6; }
+    #menuTasti { background: rgba(0,0,0,0.35); backdrop-filter: blur(8px); }
+    #finestraSecondaria { background: rgba(255,255,255,0.04); }
+    /* riquadri in alto: su due righe se non entrano, e senza coprire lo zoom */
+    #barraAltaCentro { width: calc(100vw - 16px); max-width: none; flex-wrap: wrap; justify-content: center; gap: 4px; }
+    #riquadroOra { font-size: 15px; padding: 3px 9px; }
+    #riquadroMaree { min-width: 0; padding: 3px 9px; }
+    #riquadroVento, #riquadroMeteo { padding: 3px 8px; }
+    #riquadroVento .vtRiga1, #riquadroMeteo .vtRiga1 { font-size: 13px; }
+    #riquadroVento .vtRiga2, #riquadroMeteo .vtRiga2 { font-size: 9.5px; }
+    .leaflet-top.leaflet-left { top: 108px; }
 </style>
 </head>
 <body>
@@ -523,6 +554,8 @@
   <div class="avvisoLimiti">Un solo file con waypoint, zone, barche (con i loro ponti), allarmi a orario, rotte salvate e registro uscite. Le tracce non sono incluse. Ripristinare sostituisce i dati che hai adesso.</div>
   <div class="rigaWaypoint"><button id="btnSalvaCopia" style="margin:0">Salva copia in un file</button><button id="btnRipristinaCopia" style="margin:0;background:#c62828">Ripristina da file</button></div>
 </div>
+
+<div id="manigliaDestra" role="button" aria-label="Apri il menu"><span></span></div>
 
 <div id="pannelloTraccia">
   <button id="btnMenu">☰</button>
@@ -4291,6 +4324,8 @@
   setInterval(function () { document.body.classList.toggle("mediaOn", mediaAttiva); }, 400);
   document.body.classList.toggle("mediaOn", mediaAttiva);
 
+  document.getElementById("manigliaDestra").addEventListener("click", function () { document.getElementById("btnMenu").click(); });
+
   (function () {
     const zonaInf = document.getElementById("zonaInferiore");
     document.getElementById("maniglia").addEventListener("click", function () {
@@ -4395,7 +4430,7 @@
       return;
     }
     const nodi = Math.round(ventoDati.nodi);
-    t1.textContent = nomeDirezione(ventoDati.da) + " " + nodi + " kn";
+    t1.textContent = SIGLE_VENTI[Math.round(ventoDati.da / 45) % 8] + " " + nodi + " kn";
     t2.textContent = "forza " + forzaBeaufort(ventoDati.nodi) + " · raff. " + Math.round(ventoDati.raffiche);
     aggiornaFrecciaVento();
   }
