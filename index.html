@@ -2369,7 +2369,7 @@
     try { if (navigator.vibrate) { navigator.vibrate(60); } } catch (e) {}
     document.getElementById("campoLat").value = punto.lat.toFixed(6);
     document.getElementById("campoLng").value = punto.lng.toFixed(6);
-    mostraWaypoint();
+    mostraAggiungiWaypoint();   // il pannello per aggiungere, non l'elenco
   }
 
   contenitoreMappa.addEventListener("touchstart", function (ev) {
