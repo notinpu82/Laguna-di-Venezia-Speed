@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mappa Laguna di Venezia</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b4f7c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Laguna">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     /* ===== COLORI DEL TEMA (si cambiano da Opzioni > Colori). Qui i valori del tema Base ===== */
@@ -4360,6 +4367,13 @@
   // ===== SCHERMATA PULITA: media che compare solo quando è attiva, tab nascosti =====
   setInterval(function () { document.body.classList.toggle("mediaOn", mediaAttiva); }, 400);
   document.body.classList.toggle("mediaOn", mediaAttiva);
+
+  // App installabile: il service worker tiene una copia dell'app per usarla anche senza rete
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
 
   document.getElementById("btnManuale").addEventListener("click", function () {
     chiudiMenuTasti();
