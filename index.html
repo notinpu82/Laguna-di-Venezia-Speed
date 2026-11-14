@@ -2434,9 +2434,21 @@
     } catch (e) {}
   }
 
+  // Il suono è pronto solo dopo che hai toccato lo schermo almeno una volta (regola di Chrome)
+  function suonoPronto() {
+    return !!contestoAudio && contestoAudio.state === "running";
+  }
+
+  // Basta un tocco qualsiasi, in qualunque punto, per preparare il suono e la vibrazione degli allarmi
+  ["pointerdown", "touchstart", "click", "keydown"].forEach(function (ev) {
+    document.addEventListener(ev, function () { sbloccaAudio(); }, { passive: true });
+  });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) { sbloccaAudio(); } });
+
   function suonaAllarme() {
     try {
       if (contestoAudio) {
+        if (contestoAudio.state === "suspended") { contestoAudio.resume(); }
         for (let i = 0; i < 2; i++) {
           const osc = contestoAudio.createOscillator();
           const vol = contestoAudio.createGain();
@@ -2981,7 +2993,7 @@
       kmh = velIstKmh;
     }
     if (kmh !== null && kmh > zonaCorrente.limite) {
-      bannerAllarmeZona.textContent = "⚠ Zona " + zonaCorrente.nome + ": " + (zonaCorrente.tipo === "media" ? "media " : "velocità ") + kmh.toFixed(1) + " (limite " + zonaCorrente.limite + ")";
+      bannerAllarmeZona.textContent = "⚠ Zona " + zonaCorrente.nome + ": " + (zonaCorrente.tipo === "media" ? "media " : "velocità ") + kmh.toFixed(1) + " (limite " + zonaCorrente.limite + ")" + (suonoPronto() ? "" : " — tocca lo schermo per attivare il suono");
       bannerAllarmeZona.style.display = "block";
       if (timerAllarmeZona === null) {
         suonaAllarme();
